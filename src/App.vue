@@ -11,8 +11,18 @@
 </script>
 
 <template>
-<Navbar />
 <main>
   <router-view />
 </main>
+<Navbar />
+
 </template>
+<style scoped>
+*{
+
+  font-family: 'Poppins', sans-serif;
+
+
+
+}
+</style>
