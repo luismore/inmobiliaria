@@ -3,15 +3,6 @@
     <!-- Imagen principal con botón de compartir -->
     <div class="image-wrapper">
       <img :src="listing.images[0]" class="main-image" />
-      <button class="share-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-          class="bi bi-share" viewBox="0 0 16 16">
-          <path
-            d="M13.5 1a1.5 1.5 0 1 1-1.415 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 1h6.378A1.5 1.5 0 0 1 13.5 1z" />
-          <path
-            d="M13 5.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0 0 1h10a.5.5 0 0 0 .5-.5zM13 7.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0 0 1h10a.5.5 0 0 0 .5-.5zM13 9.5a.5.5 0 0 0-.5-.5h-10a.5.5 0 0 0 0 1h10a.5.5 0 0 0 .5-.5z" />
-        </svg>
-      </button>
     </div>
 
     <!-- Contenido debajo -->

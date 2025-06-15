@@ -86,7 +86,7 @@ export default{
 
 .link-card img {
   width: 100%;
-  height: 30rem;
+  height: 40%;
   border-radius: 20px;
   object-fit: cover;
 }
