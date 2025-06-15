@@ -3,25 +3,24 @@ defineProps(['listing'])
 </script>
 
 <template>
-  <div v-if="listing" class="card">
-    <router-link :to="`/listings/id/${listing.id}`">
+  <div v-if="listing" class="listing-card">
+    <router-link :to="`/listings/id/${listing.id}`" class="card-link">
       <img
         v-if="listing.images && listing.images.length > 0"
         :src="listing.images[0]"
         alt="Imagen de la propiedad"
-        class="card-img"
+        class="listing-img"
       />
 
-      <div class="card-content">
-        <div class="card-tag" :class="listing.tipo">
-          {{ listing.tipo === 'venta' ? 'Sale' : 'Rent' }}
+      <div class="listing-details">
+        <p class="address">{{ listing.direccion }}</p>
+        <h2 class="name">{{ listing.nombre }}</h2>
+        <p class="price">${{ listing.precio.toLocaleString() }} / Month</p>
+
+        <div class="features">
+          <span><i class="fas fa-bed"></i> {{ listing.dormitorios }} Bedroom<span v-if="listing.dormitorios > 1">s</span></span>
+          <span><i class="fas fa-bath"></i> {{ listing.banos }} Bathroom<span v-if="listing.banos > 1">s</span></span>
         </div>
-
-        <h2 class="card-title">{{ listing.nombre }}</h2>
-
-        <p class="card-price">
-          {{ listing.precio.toLocaleString() }} €
-        </p>
       </div>
     </router-link>
   </div>
@@ -32,58 +31,68 @@ defineProps(['listing'])
 </template>
 
 <style scoped>
-.card {
-  background-color: #fff;
-  border-radius: 12px;
+.listing-card {
+  display: flex;
+  background-color: white;
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s;
-  margin: 1rem auto;
 }
 
-.card:hover {
+.listing-card:hover {
   transform: scale(1.01);
 }
 
-.card-img {
+.card-link {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
   width: 100%;
-  height: 260px;
+}
+
+.listing-img {
+  width: 220px;
+  height: 150px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
-.card-content {
+.listing-details {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  font-size: 0.8rem;
+.address {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.name {
+  font-size: 1.3rem;
   font-weight: 600;
-  border-radius: 8px;
-  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+  color: #000;
 }
 
-.card-tag.venta {
-  background-color: #d1f2eb;
-  color: #117a65;
-}
-
-.card-tag.alquiler {
-  background-color: #d6eaf8;
-  color: #21618c;
-}
-
-.card-title {
-  font-size: 1.2rem;
+.price {
   font-weight: bold;
-  margin: 0.3rem 0;
-text-transform: uppercase;
-
+  color: #00C26A;
+  margin-bottom: 0.5rem;
 }
 
-.card-price {
-  font-size: 1.1rem;
-  color: #2c3e50;
+.features {
+  display: flex;
+  gap: 1.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.features i {
+  margin-right: 0.3rem;
 }
 </style>

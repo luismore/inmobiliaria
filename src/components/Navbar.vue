@@ -43,7 +43,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 100px;
   z-index: 10;
   border-top: 1px solid #ccc;
 }
@@ -59,7 +59,7 @@
 }
 
 .nav-link i {
-  font-size: 1.2rem;
+  font-size: 2rem;
   margin-bottom: 4px;
 }
 

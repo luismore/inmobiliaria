@@ -2,22 +2,24 @@
   <div class="home-container">
     <section class="featured">
       <h1 class="title">Explore</h1>
+      <h3>Recommeded</h3>
       <ListingCard v-if="randomOffer" :listing="randomOffer" />
     </section>
 
 
-    <h2>Categories</h2>
-    <section class="explore-links">
-      <router-link class="link-card alquiler" to="/listings/tipo/alquiler">
-        <img src="../assets/Rent.jpg" alt="Alquiler" />
-        <h2>Ver propiedades en alquiler</h2>
-      </router-link>
-      
-      <router-link class="link-card venta" to="/listings/tipo/venta">
-        <img src="../assets/Sale.jpg" alt="Venta" />
-        <h2>Ver propiedades en venta</h2>
-      </router-link>
-    </section>
+  <h3>Categories</h3>
+  <section class="explore-links">
+    <router-link class="link-card alquiler" to="/listings/tipo/alquiler">
+      <img src="../assets/Rent.jpg" alt="Alquiler" />
+      <h3>Places for rent</h3>
+    </router-link>
+
+    <router-link class="link-card venta" to="/listings/tipo/venta">
+      <img src="../assets/Sale.jpg" alt="Venta" />
+      <h3>Places for sale</h3>
+    </router-link>
+  </section>
+
   </div>
 </template>
 
@@ -62,35 +64,38 @@ export default{
 
 .explore-links {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
-  justify-content:center;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-top: 1rem;
 }
 
 .link-card {
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 48%;
   text-decoration: none;
-  background: #f4f4f4;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: inherit;
+  background-color: transparent;
+  transition: transform 0.3s ease;
 }
 
 .link-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02);
 }
 
 .link-card img {
   width: 100%;
-  height: 200px;
+  height: 30rem;
+  border-radius: 20px;
   object-fit: cover;
 }
 
-.link-card h2 {
-  font-size: 1.2rem;
-  padding: 1rem;
-  color: #333;
+.link-card p {
+  margin-top: 0.8rem;
+  font-weight: 500;
+  font-size: 1rem;
+  padding-left: 0.5rem;
 }
+
 </style>
