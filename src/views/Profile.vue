@@ -9,8 +9,8 @@
       <div class="section">
         <h2>Personal Details</h2>
         <div class="details-box">
-          <p class="name">Luis Calvo</p>
-          <p class="email">luiscalvomain@gmail.com</p>
+          <p class="name">{{ userName }}</p>
+          <p class="email">{{ userEmail }}</p>
         </div>
       </div>
 
@@ -28,12 +28,20 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const isLoggedIn = ref(false)
+const userName = ref('')
+const userEmail = ref('')
 let auth
 
 onMounted(() => {
   auth = getAuth()
   onAuthStateChanged(auth, (user) => {
-    isLoggedIn.value = !!user
+    if (user) {
+      isLoggedIn.value = true
+      userName.value = user.displayName || 'No name available'
+      userEmail.value = user.email || 'No email'
+    } else {
+      isLoggedIn.value = false
+    }
   })
 })
 
